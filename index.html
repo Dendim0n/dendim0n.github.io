@@ -162,6 +162,7 @@
       z-index: 1;
       padding: 2rem 3rem;
       font-size: 0.75rem;
+      opacity: 0;
       color: var(--text-muted);
       font-family: 'SF Mono', 'JetBrains Mono', monospace;
       display: flex;
@@ -175,6 +176,41 @@
     footer a:hover { color: var(--accent); }
 
     /* === Responsive === */
+    /* === Page Load Animations === */
+    .hero-greeting,
+    .hero-title,
+    .hero-desc {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fade-slide-in 0.4s ease-out forwards;
+    }
+    .hero-title { animation-delay: 0.1s; }
+    .hero-desc { animation-delay: 0.2s; }
+
+    .card {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fade-slide-in 0.3s ease-out forwards;
+    }
+    .card:nth-child(1) { animation-delay: 0.25s; }
+    .card:nth-child(2) { animation-delay: 0.3s; }
+    .card:nth-child(3) { animation-delay: 0.35s; }
+
+    footer {
+      opacity: 0;
+      animation: fade-in 0.3s ease-out 0.4s forwards;
+    }
+
+    @keyframes fade-slide-in {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fade-in {
+      to { opacity: 1; }
+    }
+
     @media (max-width: 768px) {
       nav { padding: 1.5rem; }
       .hero { padding: 0 1.5rem 3rem; }
